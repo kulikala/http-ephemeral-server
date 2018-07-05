@@ -1,6 +1,7 @@
 const createError = require('http-errors')
 const express = require('express')
 const path = require('path')
+const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
 const logger = require('morgan')
 const stylus = require('stylus')
@@ -17,6 +18,10 @@ app.use(logger('dev'))
 app.use(express.json())
 app.use(express.urlencoded({
   extended: false
+}))
+app.use(bodyParser.text({
+  limit: 256,
+  type: '*/*'
 }))
 app.use(cookieParser())
 app.use(stylus.middleware(path.join(__dirname, 'public')))
