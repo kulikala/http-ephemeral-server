@@ -1,5 +1,18 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h1 HTTP Ephemeral Server
+  p= now
+
+  each item in tables
+    h2= item.title
+
+    table
+      each val, key in item.data
+        tr
+          th= key
+          if val.indexOf('{\n') === 0
+            td
+              pre= val
+          else
+            td= val
