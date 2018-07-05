@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  app:
+    build:
+      context: .
+      args:
+        PORT: 80
+    ports:
+      - "8000:80"
