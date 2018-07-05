@@ -1,8 +1,7 @@
 {
-  "name": "http-container-ephemeral",
+  "name": "http-ephemeral-server",
   "version": "0.0.1",
-  "description": "Ephemeral Node.js HTTP application for Docker container",
-  "private": true,
+  "description": "Ephemeral Node.js HTTP application for investigation",
   "scripts": {
     "start": "node ./bin/www",
     "lint": "eslint --ext .js --ignore-path .gitignore {.,bin/www}"
