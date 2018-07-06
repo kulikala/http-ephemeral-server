@@ -34,18 +34,20 @@ router.all('*', (req, res, next) => {
       },
       {
         title: 'Server',
-        data: sortObjectKey({
-          // This app
-          port: req.app.get('port'),
+        data: sortObjectKey(Object.assign(
+          {
+            // This app
+            port: req.app.get('port')
+          },
 
           // process
-          ...buildObjectByKeys([
+          buildObjectByKeys([
             'pid',
             'platform',
             'release',
             'version'
           ], process)
-        })
+        ))
       },
       {
         title: 'Env',
