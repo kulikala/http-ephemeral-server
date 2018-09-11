@@ -1,8 +1,24 @@
 const express = require('express')
 const router = express.Router()
 
+let enabled = true
+
+/* Switch to 503 mode */
+/* Request this page again to toggle the state */
+router.get(process.env.ROUTER_PATH_SWITCH || '*/sys/switch', (req, res, next) => {
+  res.sendStatus(200)
+
+  enabled = !enabled
+})
+
 /* GET home page. */
 router.all('*', (req, res, next) => {
+  if (!enabled) {
+    // Send 503 Service Unavailable
+    res.sendStatus(503)
+    return
+  }
+
   res.render('index', {
     now: new Date().toLocaleString(),
     tables: [
