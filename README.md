@@ -113,6 +113,18 @@ app.listen(3000)
 
 **Now your server is listening on 3000**
 
+## Switch to `503 Service Unavailable` mode
+
+Open browser and visit `http://localhost:3000/sys/switch`.
+
+Then, visit `http://localhost:3000` and you'll see `Service Unavailable` in your browser.
+
+You can switch back from this mode by accessing `/sys/switch` again.
+
+This url is modifiable by passing the `ROUTER_PATH_SWITCH` environment variable.
+
+The default value is: `ROUTER_PATH_SWITCH='*/sys/switch'`
+
 ## License
 
 MIT
